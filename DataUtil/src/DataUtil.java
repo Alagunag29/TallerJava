@@ -6,8 +6,8 @@ public class DataUtil {
 	
 	public static void main(String[] args) {
 		
-		String fecha, dd, mm, aa, ax;
-		int dia, mes, ann, aux, veriFecha;
+		private String fecha, dd, mm, aa, ax;
+		private int dia, mes, ann, aux, veriFecha;
 		
 		Scanner entradaTeclado = new Scanner(System.in);
 		
@@ -48,7 +48,7 @@ public class DataUtil {
 	
 	//vericacion de la fecha sea expresada como se pide
 	public static boolean dateCheck(String valor){
-		int SW=1;
+		private int SW=1;
 		if(valor.length() == 10){
 		 
 			for(int i=0;i<valor.length();i++){
@@ -82,8 +82,8 @@ public class DataUtil {
 	
 	// Verificacion si la fecha si existe el calendario
 	public static int fexistingDate(int dia, int mes, int add ){
-		int sw=0 ;
-		int numDiaMes[] = {31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31};
+		private int sw=0 ;
+		private int numDiaMes[] = {31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31};
 		if(mes <= 12){
 			//baseCalen definida como global para utilizarla en el metodo calendario
 			baseCalen = numDiaMes[mes-1] ;
@@ -107,11 +107,11 @@ public class DataUtil {
 	// Imprime ya la fecha teniendo las condiciones dadas por el algoritmo
     public static void printDate(int dia, int mes, int add, int aux){
     	
-    	int a = 0, b, c, d, e, num, base; // variables para sacar el dia dada por el algoritmo  	
+    	private int a = 0, b, c, d, e, num, base; // variables para sacar el dia dada por el algoritmo  	
         
-    	int valorMes[] = {6, 2, 2, 5, 0, 3, 5, 1, 4, 6, 2, 4};
-    	String diaSemana[] = {"Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"};
-    	String nomMes[] = {"Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dic"}; 
+    	private int valorMes[] = {6, 2, 2, 5, 0, 3, 5, 1, 4, 6, 2, 4};
+    	private String diaSemana[] = {"Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"};
+    	private String nomMes[] = {"Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dic"}; 
         
         if(add >= 1700 && add <= 1799){
         	a = 5;
@@ -158,7 +158,7 @@ public class DataUtil {
     //Imprime el calendario
     
     public static void calendario(int base){
-        int contador=0;
+        private int contador=0;
     	
         System.out.println("Sun\tMon\tTue\tWed\tThu\tFri\tSat");
         for(int i = 0; i <= 5; i++ ){
