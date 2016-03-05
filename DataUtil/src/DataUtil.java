@@ -2,6 +2,8 @@ import java.util.Scanner;
 
 public class DataUtil {
 
+	static int baseCalen = 0;
+	
 	public static void main(String[] args) {
 		
 		String fecha, dd, mm, aa, ax;
@@ -11,13 +13,13 @@ public class DataUtil {
 		
 		System.out.println("INGRESE FECHA EN FORMATO : DD/MM/AAAA");
 		System.out.print("ejemplo 02/03/2016: "); 
-		fecha = entradaTeclado.next();
+		fecha = entradaTeclado.nextLine();
 		  
 	    if( dateCheck(fecha) == true){
 	    	dd  = fecha.substring(0, 2);
 			mm  = fecha.substring(3, 5);
 			aa  = fecha.substring(6, 10);
-			ax  = fecha.substring(8,10);
+			ax  = fecha.substring(8, 10);
 			
 			dia  = Integer.parseInt(dd);
 			mes  = Integer.parseInt(mm);
@@ -28,6 +30,7 @@ public class DataUtil {
 			
 			if(veriFecha == 1){
 				 printDate(dia, mes, ann, aux);
+				 
 			}
 			else{
 				System.out.println("Fecha incorrecta no se encuentra en el calendario ");
@@ -79,14 +82,24 @@ public class DataUtil {
 	
 	// Verificacion si la fecha si existe el calendario
 	public static int fexistingDate(int dia, int mes, int add ){
-		int sw=0;
+		int sw=0 ;
 		int numDiaMes[] = {31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31};
+		if(mes <= 12){
+			//baseCalen definida como global para utilizarla en el metodo calendario
+			baseCalen = numDiaMes[mes-1] ;
+		    
+			if(numDiaMes[mes-1] == 28 && add % 4 == 0){
+				baseCalen = numDiaMes[mes-1] + 1;
+			}
 		
-	    if( add % 4 == 0 && add >= 1582 && dia == numDiaMes[mes-1] + 1 && mes > 0 && mes <= 12 ){
-	    	sw = 1;
-	    }else if(add > 0  && dia <= numDiaMes[mes-1] && mes > 0 && mes <= 12) {
-	    	sw = 1;
-	    }
+			if( add % 4 == 0 && add >= 1582 && dia == numDiaMes[mes-1] + 1 && mes > 0 && mes <= 12 ){
+				sw = 1;
+	    	
+			}else if(add > 0  && dia <= numDiaMes[mes-1] && mes > 0 && mes <= 12) {
+	    		sw = 1;	
+			}
+		}
+		
 		return sw;
 		
 	}
@@ -94,9 +107,9 @@ public class DataUtil {
 	// Imprime ya la fecha teniendo las condiciones dadas por el algoritmo
     public static void printDate(int dia, int mes, int add, int aux){
     	
-    	int a=0, b, c, d, e, num; // variables para sacar el dia dada por el algoritmo  	
+    	int a = 0, b, c, d, e, num, base; // variables para sacar el dia dada por el algoritmo  	
         
-    	int valorMes[] = {6, 2, 2, 5, 0, 3, 5, 4, 6, 2, 4};
+    	int valorMes[] = {6, 2, 2, 5, 0, 3, 5, 1, 4, 6, 2, 4};
     	String diaSemana[] = {"Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"};
     	String nomMes[] = {"Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dic"}; 
         
@@ -131,15 +144,39 @@ public class DataUtil {
     	e = dia;
     	
     	num = (a + b + c + d + e ) % 7;
-    	
+    	base =(a + b + c + d + 1 ) % 7;
     	
     	System.out.println(diaSemana[num] + " " + dia +  " " + nomMes[mes-1] + " " + add );
     	
+    	
+    	calendario(base); //Mando la base # 1 para poder imprimir el calendario
+                         //desde donde su ubica el primer dia del mes
+    	
+    	
     }
    
-  
-
+    //Imprime el calendario
+    
+    public static void calendario(int base){
+        int contador=0;
+    	
+        System.out.println("Sun\tMon\tTue\tWed\tThu\tFri\tSat");
+        for(int i = 0; i <= 5; i++ ){
+    		for(int j=0; j< 7; j++){
+    			if(contador < baseCalen){
+    				if( i >=1 || j >= base ){
+    					contador++;
+    					System.out.print(contador + "\t");
+    				}else{
+    					System.out.print("\t");	
+    				}
+    			}
+    		}
+    		System.out.println(" ");
+    	}
+    					
+    }
 
 	
-}
+} 
 
