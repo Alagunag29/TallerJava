@@ -7,11 +7,11 @@ public class isProductOfPrimeFactors {
 
 	public static void main(String[] args) {
 		
-	   int limite, cantidad;
-	   double porcentaje;
+	   private int limite, cantidad;
+	   private double porcentaje;
 	   // lista para guardar los numeros;
-	   ArrayList lista = new ArrayList(); 
-	   Scanner entradaTeclado = new Scanner (System.in); 	
+	   private ArrayList lista = new ArrayList(); 
+	   private Scanner entradaTeclado = new Scanner (System.in); 	
        
 	   System.out.print("Ingrese limite: ");
        limite = entradaTeclado.nextInt();
@@ -32,7 +32,7 @@ public class isProductOfPrimeFactors {
 	}
 	
     public static void primos(int k, ArrayList<Integer> lista){
-    	int num=0, mul=1, prod=1, contadorNum=0;
+    	private int num=0, mul=1, prod=1, contadorNum=0;
     	for(int j=2; j<k; j++){
     		for(int r=1 ; r<=j; r++ ){
     			if(j % r == 0 ){
