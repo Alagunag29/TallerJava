@@ -5,11 +5,11 @@ import java.util.Scanner;
 public class GradesAverage {
 
 	public static void main(String[] args) {
-		int i=1, numeroEstudiantes, notas, sumatoria=0;
+		private int i=1, numeroEstudiantes, notas, sumatoria=0;
 		
 		
-		ArrayList listaNotas = new ArrayList();
-		Scanner entradaTeclado = new Scanner (System.in);
+		private ArrayList listaNotas = new ArrayList();
+		private Scanner entradaTeclado = new Scanner (System.in);
 		
 		System.out.print("Digite numero de estudiantes: ");
 		numeroEstudiantes = entradaTeclado.nextInt();
