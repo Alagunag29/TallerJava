@@ -4,11 +4,11 @@ import java.util.Scanner;
 public class PerfectNumberList {
 
 	public static void main(String[] args) {
-		int sumPerf = 0, limite;
+		private int sumPerf = 0, limite;
 
-		ArrayList<Integer> listaPerf = new ArrayList();
-		ArrayList<Integer> listaDife = new ArrayList();
-		Scanner entradaTeclado = new Scanner (System.in);
+		private ArrayList<Integer> listaPerf = new ArrayList();
+		private ArrayList<Integer> listaDife = new ArrayList();
+		private Scanner entradaTeclado = new Scanner (System.in);
 
 		System.out.print("INGRESE LIMITE: ");
 		limite = entradaTeclado.nextInt();
@@ -32,8 +32,8 @@ public class PerfectNumberList {
 	}
 
 	public static void operacion(int limite, ArrayList<Integer> lista){
-		int sumatoria = 0;
-		double promedio=0;
+		private int sumatoria = 0;
+		private double promedio=0;
 		System.out.println(lista);
 		sumatoria = lista.size();
 		promedio = ((sumatoria*100)/limite);
