@@ -6,7 +6,7 @@ public class GradeStatistics {
 	public static int[] notas;
 	
 	public static void main(String[] args) {
-		ArrayList<Integer> listaNotas = new ArrayList<>();
+		private ArrayList<Integer> listaNotas = new ArrayList<>();
 		
 		readGrades(listaNotas); 
 		System.out.println("The average is " + average(listaNotas)); 
@@ -16,8 +16,8 @@ public class GradeStatistics {
 	}
 	
 	public static void readGrades(ArrayList<Integer> listaNotas) {
-		Scanner teclado = new Scanner(System.in);
-		int numAlumnos=0, temp=1, notas=0;
+		private Scanner teclado = new Scanner(System.in);
+		private int numAlumnos=0, temp=1, notas=0;
 				
 		System.out.print("numero de alumnos: ");
 		numAlumnos=teclado.nextInt();
@@ -34,8 +34,8 @@ public class GradeStatistics {
 		}
 	}
 	public static double average(ArrayList<Integer> listaNotas) {
-		double promedio=0;
-		int sumatoria=0, temp=0;
+		private double promedio=0;
+		private int sumatoria=0, temp=0;
 		
 		for (int i = 0; i < listaNotas.size(); i++) {
 			sumatoria += (int) listaNotas.get(i);
@@ -46,7 +46,7 @@ public class GradeStatistics {
 		return promedio;
 	} 
 	public static int max(ArrayList<Integer> listaNotas){
-		int maximo=0, temp=0;
+		private int maximo=0, temp=0;
 		
 		for (int i = 0; i < listaNotas.size(); i++) {
 			temp = (int) listaNotas.get(i);
@@ -57,7 +57,7 @@ public class GradeStatistics {
 		return maximo;
 	}
 	public static int min(ArrayList<Integer>listaNotas) {
-		int minimo=100, temp=0;
+		private int minimo=100, temp=0;
 		
 		for (int i = 0; i < listaNotas.size(); i++) {
 			temp = (int) listaNotas.get(i);
@@ -68,8 +68,8 @@ public class GradeStatistics {
 		return minimo;
 	}
 	public static double stdDev(ArrayList<Integer>listaNotas) {
-		float resultado=0, media=0;
-		int temp=0, suma=0, sumatoria=0, cont=0, uno=-1, dos=2;
+		private float resultado=0, media=0;
+		private int temp=0, suma=0, sumatoria=0, cont=0, uno=-1, dos=2;
 		for (int i = 0; i < listaNotas.size(); i++) {
 			temp = (int) listaNotas.get(i);
 			suma+=temp*temp;
