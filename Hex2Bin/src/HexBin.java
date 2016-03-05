@@ -6,10 +6,10 @@ public class HexBin {
 
 	public static void main(String[] args) throws IOException {
        
-		String hex, binario;
-		boolean sw=true;
+		private String hex, binario;
+		private boolean sw=true;
 		
-		BufferedReader in=new BufferedReader(new InputStreamReader(System.in));
+		private BufferedReader in=new BufferedReader(new InputStreamReader(System.in));
 		
 		System.out.print("Ingrese numero hexadecimal: ");
 		hex = in.readLine();
